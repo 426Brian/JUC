@@ -13,18 +13,19 @@ public class LambdaTest {
      */
     @Test
     public void test1() {
-        Runnable runnable1 = new Runnable() {
+        Runnable run1 = new Runnable() {
             @Override
             public void run() {
-                System.out.println("runnable test");
+                System.out.println("runable test");
             }
         };
-        runnable1.run();
 
-        Runnable runnable = () -> {
+        run1.run();
+
+        Runnable run2 = ()->{
             System.out.println("runnable lamda test");
         };
-        runnable.run();
+        run2.run();
     }
 
 
@@ -33,19 +34,19 @@ public class LambdaTest {
      */
     @Test
     public void test2() {
+
         Consumer<String> consumer = new Consumer<String>() {
+
             @Override
             public void accept(String s) {
                 System.out.println(s);
             }
         };
-
         consumer.accept("谎言和誓言的区别是什么");
 
-        Consumer<String> consumer1 = (String s) -> {
+        Consumer<String> consumer1 = (s)->{
             System.out.println(s);
         };
-
         consumer1.accept("一个是说的人当真了, 一个是听得人当真了");
     }
 
@@ -106,12 +107,13 @@ public class LambdaTest {
             }
         };
 
-        Comparator<Integer> comparator1 = (o1, o2) -> {
-            return o1.compareTo(o2);
-        };
+        Comparator<Integer> comparator1 = (o1, o2) -> Integer.compare(o1, o2);
 
 
-    }
+        System.out.println(comparator1.compare(1,2));
+
+
+}
 
     /**
      * 6. 两个以上参数, 多条语句, 有返回值
